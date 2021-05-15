@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"github.com/JFJun/bifrost-go/utils"
+	"github.com/coldwallet-group/bifrost-go/utils"
 	"github.com/huandu/xstrings"
 	"github.com/stafiprotocol/go-substrate-rpc-client/types"
 	"math/big"

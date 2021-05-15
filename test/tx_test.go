@@ -2,10 +2,10 @@ package test
 
 import (
 	"fmt"
-	"github.com/JFJun/bifrost-go/client"
-	"github.com/JFJun/bifrost-go/expand"
-	"github.com/JFJun/bifrost-go/tx"
 	"github.com/JFJun/go-substrate-crypto/crypto"
+	"github.com/coldwallet-group/bifrost-go/client"
+	"github.com/coldwallet-group/bifrost-go/expand"
+	"github.com/coldwallet-group/bifrost-go/tx"
 	"testing"
 )
 

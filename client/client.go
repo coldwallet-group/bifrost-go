@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/JFJun/bifrost-go/expand"
-	"github.com/JFJun/bifrost-go/models"
-	"github.com/JFJun/bifrost-go/utils"
 	"github.com/JFJun/go-substrate-crypto/ss58"
+	"github.com/coldwallet-group/bifrost-go/expand"
+	"github.com/coldwallet-group/bifrost-go/models"
+	"github.com/coldwallet-group/bifrost-go/utils"
 
 	gsrc "github.com/stafiprotocol/go-substrate-rpc-client"
 	gsClient "github.com/stafiprotocol/go-substrate-rpc-client/client"

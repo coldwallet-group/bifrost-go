@@ -1,9 +1,9 @@
 package expand
 
 import (
-	"github.com/JFJun/bifrost-go/expand/bifrost"
-	"github.com/JFJun/bifrost-go/expand/kusama"
-	"github.com/JFJun/bifrost-go/expand/polkadot"
+	"github.com/coldwallet-group/bifrost-go/expand/bifrost"
+	"github.com/coldwallet-group/bifrost-go/expand/kusama"
+	"github.com/coldwallet-group/bifrost-go/expand/polkadot"
 	"github.com/stafiprotocol/go-substrate-rpc-client/types"
 	"strings"
 )

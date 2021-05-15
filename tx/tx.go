@@ -3,9 +3,9 @@ package tx
 import (
 	"encoding/hex"
 	"fmt"
-	"github.com/JFJun/bifrost-go/expand"
-	"github.com/JFJun/bifrost-go/utils"
 	"github.com/JFJun/go-substrate-crypto/crypto"
+	"github.com/coldwallet-group/bifrost-go/expand"
+	"github.com/coldwallet-group/bifrost-go/utils"
 	"github.com/stafiprotocol/go-substrate-rpc-client/types"
 	"golang.org/x/crypto/blake2b"
 	"strings"
