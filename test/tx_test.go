@@ -4,13 +4,29 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/JFJun/go-substrate-crypto/crypto"
+	"github.com/JFJun/go-substrate-crypto/ss58"
 	"github.com/coldwallet-group/bifrost-go/client"
 	"github.com/coldwallet-group/bifrost-go/expand"
 	"github.com/coldwallet-group/bifrost-go/tx"
+	"github.com/coldwallet-group/bifrost-go/utils"
 	"math/big"
 	"testing"
 )
+func Test_acc(t *testing.T){
 
+	t.Log(utils.AddressToPublicKey("5DXVzVZSAreGnbuHvbxZNQpADwPtn2Y4WDpw8gPb7vbvvuae"))
+	t.Log(ss58.EncodeByPubHex("40abeafb6f99b8b7acd4c828a08f11a06e92b332ef8912ed1333993ce9e8d77d", []byte{0x2a}))
+	//40abeafb6f99b8b7acd4c828a08f11a06e92b332ef8912ed1333993ce9e8d77d
+	c, err := client.New("http://13.114.44.225:31933")
+	if err != nil {
+		t.Fatal(err)
+	}
+	b,err :=c.GetBlockByNumber(5302725)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(String(b))
+}
 func Test_Tx2(t *testing.T) {
 	// 1. 初始化rpc客户端
 	c, err := client.New("http://13.114.44.225:31933")

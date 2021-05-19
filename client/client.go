@@ -49,6 +49,9 @@ func New(url string) (*Client, error) {
 		return nil, err
 	}
 	c.prefix = ss58.BifrostPrefix
+	if c.ChainName == "Crab"{
+		c.prefix= ss58.SubstratePrefix
+	}
 	return c, nil
 }
 
