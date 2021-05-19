@@ -1,25 +1,27 @@
 package test
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/JFJun/go-substrate-crypto/crypto"
 	"github.com/coldwallet-group/bifrost-go/client"
 	"github.com/coldwallet-group/bifrost-go/expand"
 	"github.com/coldwallet-group/bifrost-go/tx"
+	"math/big"
 	"testing"
 )
 
 func Test_Tx2(t *testing.T) {
 	// 1. 初始化rpc客户端
-	c, err := client.New("")
+	c, err := client.New("http://13.114.44.225:31933")
 	if err != nil {
 		t.Fatal(err)
 	}
 	//2. 如果某些链（例如：chainX)的地址的字节前面需要0xff,则下面这个值设置为false
 	//expand.SetSerDeOptions(false)
-	from := ""
-	to := ""
-	amount := uint64(10000000000)
+	from := "5GgFf8FPYaPM1MgKuK8J61u5EbjbY2gab6R1t3qRhFS3ytgZ"
+	to := "5F4JVJ51EdSqWUMpW9V8DaaorPkAXmmw3kay2dQv8e6w9eiT"
+	amount := uint64(100000000)
 	//3. 获取from地址的nonce
 	acc, err := c.GetAccountInfo(from)
 	if err != nil {
@@ -34,7 +36,7 @@ func Test_Tx2(t *testing.T) {
 		t.Fatal(err)
 	}
 	//6. 初始化Balances.transfer的call方法
-	call, err := ed.BalanceTransferCall(to, amount)
+	call, err := ed.BalanceTransferCall(to, big.NewInt(int64(amount)))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -69,4 +71,8 @@ func Test_Tx2(t *testing.T) {
 	//10. txid
 	txid := result.(string)
 	fmt.Println(txid)
+}
+func String(d interface{})string{
+	str,_ := json.Marshal(d)
+	return string(str)
 }

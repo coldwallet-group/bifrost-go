@@ -470,6 +470,18 @@ func (c *Client) GetAccountInfo(address string) (*types.AccountInfo, error) {
 		accountInfo.Data.FreeFrozen = accountInfoProviders.Data.FreeFrozen
 		accountInfo.Data.MiscFrozen = accountInfoProviders.Data.MiscFrozen
 		accountInfo.Data.Reserved = accountInfoProviders.Data.Reserved
+	case "crab":
+		var accountInfoProviders expand.CringAccountInfo
+		ok, err = c.C.RPC.State.GetStorageLatest(storage, &accountInfoProviders)
+		if err != nil || !ok {
+			return nil, fmt.Errorf("get account info error: %v", err)
+		}
+		accountInfo.Nonce = accountInfoProviders.Nonce
+		accountInfo.Refcount = accountInfoProviders.Refcount
+		accountInfo.Data.Free = accountInfoProviders.Data.Free
+		accountInfo.Data.FreeFrozen = accountInfoProviders.Data.FreeFrozen
+		accountInfo.Data.MiscFrozen = accountInfoProviders.Data.MiscFrozen
+		accountInfo.Data.Reserved = accountInfoProviders.Data.Reserved
 	default:
 		ok, err = c.C.RPC.State.GetStorageLatest(storage, &accountInfo)
 		if err != nil || !ok {
