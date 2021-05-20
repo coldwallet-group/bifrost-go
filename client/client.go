@@ -52,6 +52,9 @@ func New(url string) (*Client, error) {
 	if c.ChainName == "Crab"{
 		c.prefix= ss58.SubstratePrefix
 	}
+	if c.ChainName == "polkadot"{
+		c.prefix = ss58.PolkadotPrefix
+	}
 	return c, nil
 }
 

@@ -26,6 +26,8 @@ func Test_acc(t *testing.T){
 		t.Fatal(err)
 	}
 	t.Log(String(b))
+	h,_ :=c.C.RPC.Chain.GetFinalizedHead()
+	t.Log(h.Hex())
 }
 func Test_Tx2(t *testing.T) {
 	// 1. 初始化rpc客户端
